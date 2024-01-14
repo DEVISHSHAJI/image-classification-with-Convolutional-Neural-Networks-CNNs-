@@ -33,9 +33,17 @@ cifar-10-batches-py/: Directory containing the CIFAR-10 dataset.
  Use the predict_image.py script to predict the class of a single image. Example usage:
 
 
+
 **License**
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+
+
+
+
 **Acknowledgments**
+
+
 CIFAR-10 dataset: https://www.cs.toronto.edu/~kriz/cifar.html
 TensorFlow: https://www.tensorflow.org/
