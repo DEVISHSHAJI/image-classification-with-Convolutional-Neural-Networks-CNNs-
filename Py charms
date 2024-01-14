@@ -1,0 +1,71 @@
+import os
+import pickle
+
+# Get the absolute path to the script's directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Specify the relative path to the file
+relative_file_path = os.path.join('cifar-10-batches-py', 'data_batch_1')
+
+# Combine the script directory and relative file path
+file_path = os.path.join(script_dir, relative_file_path)
+
+with open(file_path, 'rb') as file:
+    # Your code here
+    data = pickle.load(file, encoding='bytes')
+import numpy as np
+
+# Normalize pixel values
+X = data[b'data'] / 255.0
+
+# One-hot encode labels
+Y = np.eye(10)[data[b'labels']]
+import tensorflow as tf
+from tensorflow.keras import layers, models
+
+# Define the CNN model
+model = models.Sequential()
+model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(32, 32, 3)))
+model.add(layers.MaxPooling2D((2, 2)))
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+model.add(layers.MaxPooling2D((2, 2)))
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+model.add(layers.Flatten())
+model.add(layers.Dense(64, activation='relu'))
+model.add(layers.Dense(10, activation='softmax'))
+
+# Compile the model
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+# Train the model
+model.fit(X, Y, epochs=10, batch_size=64, validation_split=0.2)
+
+# Load test data
+with open('cifar-10-batches-py/test_batch', 'rb') as file:
+    test_data = pickle.load(file, encoding='bytes')
+
+# Preprocess test data
+X_test = test_data[b'data'] / 255.0
+Y_test = np.eye(10)[test_data[b'labels']]
+
+# Evaluate the model
+test_loss, test_acc = model.evaluate(X_test, Y_test)
+print(f'Test Accuracy: {test_acc}')
+
+
+# Save the model
+model.save('image_classification_model.h5')
+
+# Initialize a Git repository
+git init
+
+# Add files to the repository
+git add .
+
+# Commit changes
+git commit -m "Initial commit"
+
+# Create a new repository on GitHub
+# Follow the instructions to push the code to the repository
