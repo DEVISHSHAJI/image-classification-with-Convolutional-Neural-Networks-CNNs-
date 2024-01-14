@@ -11,11 +11,6 @@ This project is a simple end-to-end example of image classification using Convol
 
 ## Getting Started
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/image_classification_project.git
-   cd image_classification_project
 **Project Structure**
 
 cifar-10-batches-py/: Directory containing the CIFAR-10 dataset.
