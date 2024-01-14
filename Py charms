@@ -57,15 +57,3 @@ print(f'Test Accuracy: {test_acc}')
 
 # Save the model
 model.save('image_classification_model.h5')
-
-# Initialize a Git repository
-git init
-
-# Add files to the repository
-git add .
-
-# Commit changes
-git commit -m "Initial commit"
-
-# Create a new repository on GitHub
-# Follow the instructions to push the code to the repository
