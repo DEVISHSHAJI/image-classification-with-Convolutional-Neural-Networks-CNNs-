@@ -16,7 +16,7 @@ This project is a simple end-to-end example of image classification using Convol
    ```bash
    git clone https://github.com/your-username/image_classification_project.git
    cd image_classification_project
-****Project Structure**
+**Project Structure**
 
 cifar-10-batches-py/: Directory containing the CIFAR-10 dataset.
  model_training.ipynb: Jupyter Notebook for training the CNN model.
