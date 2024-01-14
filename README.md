@@ -28,8 +28,10 @@ cifar-10-batches-py/: Directory containing the CIFAR-10 dataset.
 **Training the Model**
  To train the model, run the model_training.ipynb notebook using Jupyter Notebook.
 
-****Predicting with the Pre-trained Model**
+**Predicting with the Pre-trained Model**
+
  Use the predict_image.py script to predict the class of a single image. Example usage:
+
 
 **License**
 This project is licensed under the MIT License - see the LICENSE file for details.
